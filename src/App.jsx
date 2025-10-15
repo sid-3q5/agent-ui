@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+import Navbar from './components/Navbar.jsx';
+import Sidebar from './components/Sidebar.jsx';
+import { Routes, Route } from 'react-router-dom';
+import CreateAgent from './pages/CreateAgent.jsx';
+import Setting from './pages/Setting.jsx';
+import Home from './pages/Home.jsx';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="bg-agent-bg min-h-screen flex text-text-primary">
+      {/* SIDEBAR */}
+      <Sidebar />
+
+      {/* Main content */}
+      <div className="flex-1 flex flex-col">
+        <Navbar />
+        <div className="p-8 flex-1">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/create-agent" element={<CreateAgent />} />
+            <Route path="/setting" element={<Setting />} />
+          </Routes>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+
+      {/* Fixed Footer */}
+      <footer className="fixed bottom-0 left-0 w-full bg-gray-800 text-white text-center py-4">
+        Developed by Siddhant Chauhan
+      </footer>
+    </div>
+  );
 }
 
-export default App
+export default App;
