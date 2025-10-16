@@ -67,7 +67,7 @@ export default function ADK({ framework }) {
       model: selectedModel,
     };
 
-    fetch("http://localhost:8000/generate_code", {
+    fetch("https://agent-dev-env-backend-production.up.railway.app/generate_code", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
