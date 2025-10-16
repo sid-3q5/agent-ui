@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import ADK from '../components/ADK';
+import ADK from './components/ADK';
 
 export default function CreateAgent() {
   const [framework, setFramework] = useState('');
