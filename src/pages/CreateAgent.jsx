@@ -5,12 +5,15 @@ export default function CreateAgent() {
   const [framework, setFramework] = useState('');
   const [frameworks, setFrameworks] = useState([]);
 
-  const API_BASE = 'http://localhost:8000/data'; // Adjust if needed
+
+  // const API_BASE = 'http://localhost:8000/data';
+  const API_BASE = 'https://agent-dev-env-backend-production.up.railway.app/data'; // Adjust if needed
 
   useEffect(() => {
     fetch(`${API_BASE}/frameworks`)
       .then((res) => res.json())
-      .then((data) => setFrameworks(data.frameworks));
+      .then((data) => setFrameworks(data.frameworks))
+      .catch((error) => {console.error("Error fetching frameworks:", error);});
   }, []);
 
   return (

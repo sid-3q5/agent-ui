@@ -14,7 +14,9 @@ export default function ADK({ framework }) {
   const [generatedCode, setGeneratedCode] = useState("");
   const [error, setError] = useState("");
 
-  const API_BASE = "http://localhost:8000/data";
+  // const API_BASE = "http://localhost:8000/data";
+   const API_BASE = "https://agent-dev-env-backend-production.up.railway.app/data";
+  
 
   useEffect(() => {
     if (!framework) return;
